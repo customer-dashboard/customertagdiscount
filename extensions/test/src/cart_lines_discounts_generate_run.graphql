@@ -1,0 +1,21 @@
+query CartInput($tags: [String!]! = []) {
+  cart {
+    lines {
+      id
+      cost {
+        subtotalAmount {
+          amount
+        }
+      }
+    }
+    buyerIdentity {
+      customer {
+        hasAnyTag(tags: $tags)
+      }
+    }
+  }
+  discount {
+    discountClasses
+  }
+}
+
